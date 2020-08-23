@@ -9,4 +9,5 @@ urlpatterns = [
 		path('', views.index, name ='index'), 
 		path('list_view/', GeeksList.as_view()), 
 		path('create_view/', views.create_view), 
+		path('list_view/', views.list_view), 
 ] 

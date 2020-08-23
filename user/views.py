@@ -76,3 +76,13 @@ def create_view(request):
           
     context['form']= form 
     return render(request, "user/create_view.html", context)
+
+def list_view(request): 
+    # dictionary for initial data with  
+    # field names as keys 
+    context ={} 
+  
+    # add the dictionary during initialization 
+    context["dataset"] = GeeksModel.objects.all() 
+          
+    return render(request, "user/list_view.html", context) 
