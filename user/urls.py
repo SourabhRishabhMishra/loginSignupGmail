@@ -8,4 +8,5 @@ from .views import GeeksList
 urlpatterns = [ 
 		path('', views.index, name ='index'), 
 		path('list_view/', GeeksList.as_view()), 
+		path('create_view/', views.create_view), 
 ] 
