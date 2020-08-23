@@ -8,7 +8,9 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives 
 from django.template.loader import get_template 
 from django.template import Context 
-
+#import datetime
+#from django.http import HttpResponse
+from .models import GeeksModel
 
 #################### index####################################### 
 def index(request): 
@@ -54,3 +56,13 @@ def Login(request):
 			messages.info(request, f'account done not exit plz sign in') 
 	form = AuthenticationForm() 
 	return render(request, 'user/login.html', {'form':form, 'title':'log in'}) 
+
+def list_view(request): 
+    # dictionary for initial data with  
+    # field names as keys 
+    context ={} 
+  
+    # add the dictionary during initialization 
+    context["dataset"] = GeeksModel.objects.all() 
+          
+    return render(request, "user/list_view.html", context)
