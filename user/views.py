@@ -11,6 +11,7 @@ from django.template import Context
 #import datetime
 #from django.http import HttpResponse
 from .models import GeeksModel
+from django.views.generic.list import ListView
 
 #################### index####################################### 
 def index(request): 
@@ -57,12 +58,7 @@ def Login(request):
 	form = AuthenticationForm() 
 	return render(request, 'user/login.html', {'form':form, 'title':'log in'}) 
 
-def list_view(request): 
-    # dictionary for initial data with  
-    # field names as keys 
-    context ={} 
+class GeeksList(ListView): 
   
-    # add the dictionary during initialization 
-    context["dataset"] = GeeksModel.objects.all() 
-          
-    return render(request, "user/list_view.html", context)
+    # specify the model for list view 
+    model = GeeksModel 
