@@ -11,4 +11,5 @@ urlpatterns = [
 		path('create_view/', views.create_view), 
 		path('list_view/', views.list_view), 
 		path('<id>', views.detail_view ),
+		path('<id>/update', views.update_view),
 ] 
