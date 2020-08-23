@@ -86,3 +86,13 @@ def list_view(request):
     context["dataset"] = GeeksModel.objects.all() 
           
     return render(request, "user/list_view.html", context) 
+
+def detail_view(request, id): 
+    # dictionary for initial data with  
+    # field names as keys 
+    context ={} 
+  
+    # add the dictionary during initialization 
+    context["data"] = GeeksModel.objects.get(id = id)
+          
+    return render(request, "user/detail_view.html", context)
